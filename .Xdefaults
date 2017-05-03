@@ -1,0 +1,78 @@
+
+!! URxvt*depth: 32
+URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=11, xft:FontAwesome:pixelsize=10
+URxvt*.transparent: false
+URxvt*.shading: 0
+URxvt*depth: 32
+URxvt*saveLines: 10000
+URxvt.cursorUnderline: true
+
+!! scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt.scrollBar: false
+URxvt*scrollstyle: plain
+URxvt*scrollWithBuffer: true
+URxvt*scrollBar_right: false
+
+! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
+!          using https://github.com/richo/itermcolors2xdefaults
+!URxvt*background:   #1e1f28
+!URxvt*foreground:   #ebece6
+!URxvt*cursorColor:   #e4e4e4
+!URxvt*color0:   #000
+!URxvt*color1:   #fb4245
+!URxvt*color2:   #50fa7b
+!URxvt*color3:   #f0fa8b
+!URxvt*color4:   #49b9fe
+!URxvt*color5:   #fb4cb3
+!URxvt*color6:   #8be9fd
+!URxvt*color7:   #ededec
+!URxvt*color8:   #555555
+!URxvt*color9:   #fb4245
+!URxvt*color10:   #50fa7b
+!URxvt*color11:   #f0fa8b
+!URxvt*color12:   #49b9fe
+!URxvt*color13:   #fb4cb3
+!URxvt*color14:   #8be9fd
+!URxvt*color15:   #ededec
+
+
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #CAA9FA
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+
+! Molokai theme
+!*background: #000000
+!*foreground: #d0d0d0
+!*color0: #101010
+!*color1: #960050
+!*color2: #66aa11
+!*color3: #c47f2c
+!*color4: #30309b
+!*color5: #7e40a5
+!*color6: #3579a8
+!*color7: #9999aa
+!*color8: #303030
+!*color9: #ff0090
+!*color10: #80ff00
+!*color11: #ffba68
+!*color12: #5f5fee
+!*color13: #bb88dd
+!*color14: #4eb4fa
+!*color15: #d0d0d0
