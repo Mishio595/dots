@@ -1,0 +1,66 @@
+#! /bin/sh
+
+bspc monitor -d web term chat game music
+
+bspc desktop music -l monocle
+
+bspc config border_width           1
+bspc config window_gap             10
+bspc config split_ratio            0.5
+bspc config top_padding            22
+bspc config focus_follows_pointer  true
+bspc config borderless_monocle     true
+bspc config gapless_monocle        true
+bspc config auto_cancel            true
+bspc config auto_alternate         false
+bspc config ignore_ewmh_focus      true
+
+bspc config pointer_modifier       mod4
+bspc config pointer_action1        move
+bspc config pointer_action2        resize_side
+bspc config pointer_action3        resize_corner
+bspc config focus_follows_pointer  true
+bspc config click_to_focus         true
+
+bspc config focused_border_color          "#424d17"
+bspc config normal_border_color           "#121212"
+bspc config urgent_border_color           "#EF545F"
+bspc config presel_feedback_color         "#705D22"
+bspc config focused_private_border_color  "#88a1ba"
+bspc config active_private_border_color   "#88a1ba"
+bspc config normal_private_border_color   "#627a92"
+
+# bright
+bspc config focused_border_color          "#a0a0a0"
+bspc config normal_border_color           "#121212"
+
+#Rules
+bspc rule -a "Battle.net.exe" desktop=game state=tiled
+bspc rule -a "World of Warcraft.exe" desktop=game state=tiled layer=top
+bspc rule -a "Vivaldi-stable" desktop=web
+bspc rule -a "Chromium" desktop=web
+bspc rule -a "Sakura":"ncmpcpp" desktop=music state=tiled
+bspc rule -a "Ario" desktop=music
+bspc rule -a "discord" desktop=chat
+bspc rule -a "steam" desktop=game
+bspc rule -a "spotify" desktp=music
+bspc rule -a "Spotify" desktop=music
+
+# Non-BSPWM Settings
+xsetroot -cursor_name left_ptr
+
+# Necessary programs
+sxhkd &
+$HOME/.config/polybar/polylaunch.sh  &
+lxpolkit &
+
+# Nice to have
+mpd &
+compton -b &
+greencip daemon &
+# Optional
+nitrogen --restore &
+xfce4-power-manager &
+#tilda -c cava &
+#numlockx &
+wmname LG3D &

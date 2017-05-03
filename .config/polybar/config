@@ -1,0 +1,364 @@
+[bar/top]
+width = 100%
+height = 24
+offset-x = 0
+offset-y = 0
+;bottom = true
+
+background = #5a000000
+foreground = #eee
+
+underline-size = 2
+underline-color = #eee
+
+spacing = 0 
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Lucida Gr:pixelsize=10;1
+font-1 = FontAwesome:size=10;1
+font-2 = siji:pixelsize=10;0
+
+modules-left = bspwm mpd spotify
+modules-center = date
+modules-right = keyboard volume wlan battery memory cpu temp
+
+tray-detached = true
+tray-position = right
+tray-offset-y = -30
+;tray-padding = 2
+;tray-background = #66333333
+fixed-center = true
+
+; MODULES
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+#index-sort = true
+fuzzy-match = true
+#pin-workspaces = true
+#wrapping-scroll = true
+
+ws-icon-0 = web;
+ws-icon-1 = term;
+ws-icon-2 = rss;
+ws-icon-3 = game;
+ws-icon-4 = music;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = #88000000
+label-focused-underline= #ddd
+label-focused-padding = 3
+
+label-unfocused = %icon%
+label-unfocused-padding = 3
+
+label-urgent = %icon%
+label-urgent-padding = 3
+
+label-visible = %icon%
+label-visible-foreground = #44ffffff
+label-visible-padding = 3
+
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-0 = web;
+ws-icon-1 = term;
+#ws-icon-2 = rss;
+ws-icon-2 = chat;
+ws-icon-3 = game;
+ws-icon-4 = "music; " 
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = #88000000
+label-focused-underline= #ddd
+label-focused-padding = 3
+
+label-occupied = %icon%
+label-occupied-padding = 3
+
+label-urgent = %icon%
+label-urgent-foreground = #d40000
+label-urgent-padding = 3
+
+label-empty = %icon%
+label-empty-foreground = #44ffffff
+label-empty-padding = 3
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected    = %{A:connman-gtk >/dev/null:} %essid%%{A}
+label-disconnected = %{A:connman-gtk >/dev/null:} %{A}
+label-disconnected-foreground = #aaa
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:50:...%
+label-padding = 4
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 1.0
+
+; See "man date" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %a %b %d,
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+label = %date% %time%
+format =    <label>
+;format-background = #ddffffff
+format-background = #88000000
+;format-foreground = #333
+format-padding = 3
+
+[module/padding]
+type = custom/text
+content =
+content-foreground = #00000000
+content-background = #55000000
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 5
+
+format-charging = <animation-charging><label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+format-full = <ramp-capacity><label-full>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+format = <label-indicator> <label-layout>
+format-spacing = 0
+
+label-layout = %name%
+#label-layout-background = #bc99ed
+#label-layout-foreground = #000
+
+label-indicator = %name% |
+#label-indicator-background = #8139e8
+
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+enable-scroll = true
+
+format = <ramp> <label>
+label = %percentage%
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%
+label-muted =  muted
+label-muted-foreground = #aaa
+format-volume-padding = 3
+format-muted-padding = 3
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+
+[module/spotify]
+type = custom/script
+
+exec = eval $HOME/.config/polybar/spotify.sh
+interval = 1
+
+format = <label>
+format-background = #88000000
+format-underline = #ddd
+format-padding = 0
+
+label = %output%
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+;label-open-background = #dd0000
+;label-open-foreground = #fff
+label-close = cancel
+;label-close-background = #dd0000
+;label-close-foreground = #fff
+label-open-padding = 4
+label-close-padding = 3
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-0-padding = 3
+menu-0-1-padding = 3
+
+menu-1-0 = reboot?
+menu-1-0-exec = sudo reboot
+menu-1-0-padding = 3
+
+menu-2-0 = power off?
+menu-2-0-exec = sudo poweroff
+menu-2-0-padding = 3
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+password =
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+bar-progress-width = 20
+bar-progress-format = %fill%%indicator%%empty%
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+icon-play = 
+icon-pause = 
+icon-prev = 
+icon-next = 
+icon-stop = 
+icon-random = 
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <label-song>  <icon-prev>  <toggle>  <icon-next>  <bar-progress>
+format-online-background = #88000000
+format-online-underline = #ddd
+; Available tokens:
+;   %artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = %artist% - %title:0:20:...%
+format-online-padding = 3
+
+[module/temp]
+type                  = internal/temperature
+thermal-zone          = 0
+warn-temperature      = 80
+
+format             = <ramp><label>
+label-padding = 2
+format-warn           = <label-warn>
+label                 = %temperature%
+label-warn            =  %temperature%
+
+ramp-0 = "  "
+ramp-1 = "  "
+ramp-2 = "  "
+
+[module/memory]
+type             = internal/memory
+interval         = 2
+format           = <label>
+
+label            =  %percentage_used%%
+label-padding   =  2
+
+[module/cpu]
+format-label       = internal/cpu
+
+format             = <label>
+format-padding     = 2
+
+type      = internal/cpu
+interval  = 2
+label     =  %percentage%%
+padding   = 0
+
+[module/updates]
+type = custom/script
+#interval = 5
+format = <label>
+label = "%output:0:30%"
+exec = .config/polybar/pkg.sh
+#exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+; vim:ft=dosini

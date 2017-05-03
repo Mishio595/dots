@@ -1,0 +1,103 @@
+#
+# bspwm hotkeys
+#
+
+# quit bspwm
+super + shift + Escape
+    bspc quit
+
+# switch/move window to workspace
+super + {_,shift + }{1-9}
+    bspc {desktop -f,node -d} focused:^{1-9}
+
+# close window
+super + q
+    bspc node -c
+
+# toggle window state (floating,fullscreen)
+super + space
+    toggle-floating
+
+# toggle layout (tiled, monocle)
+super + t
+    bspc desktop -l next
+
+## rotate desktop
+super + Tab
+    bspc node @focused:/ -R 90
+
+super + ctrl + {1-9}
+    bspc desktop -b focused:^{1-9}
+#focus desktop
+super + {Right,Left}
+    bspc desktop -f {next,prev}
+
+# focus window
+super +{ ,shift + }{j,k}
+    bspc node {-f,-s} {prev,next}.local
+
+# Preselect splitting area
+super + alt + {h,j,k,l}
+    bspc node -p \~{west,south,north,east}
+ctrl + alt + {Left,Right,Up,Down}
+    bspc node -p \~{west,east,north,south}
+
+super + b
+	bspc node @focused:/ -B -E
+
+# focus window on click
+~button1
+    bspc node -f pointed
+
+super + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+super + !button{1-3}
+    bspc pointer -t %i %i
+
+super + @button{1-3}
+    bspc pointer -u
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+    sakura
+
+super +{ shift + , }w
+    {vivaldi-stable --remote-debugging-port=2015,vivaldi-stable}
+
+super + shift + f
+	nemo
+
+super + d
+#    rofi -combi-modi window,drun,run -show combi -modi combi
+	rofi -show combi
+
+super +{ shift +, }m
+    {liferea,alduin}
+
+super + e
+	atom
+
+super +{shift + , }n
+    {ario,sakura --name ncmpcpp -e ncmpcpp}
+
+ctrl + alt + l
+    i3lock-wrapper
+
+XF86Audio{Raise,Lower}Volume
+	pulseaudio-ctl {up,down} 2
+#    amixer set Master 2%{+,-}
+
+XF86AudioMute
+	pulseaudio-ctl mute
+#    amixer -q set Master toggle
+
+XF86Audio{Prev,Next,Play,Stop}
+    mpc {prev,next,toggle,stop}
+
+# make sxhkd reload its configuration files:
+super + shift + c
+    pkill -USR1 -x sxhkd

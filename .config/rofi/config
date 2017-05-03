@@ -1,0 +1,23 @@
+rofi.modi: combi,clipboard:greenclip print
+rofi.combi-modi: window,drun,run
+rofi.sidebar-mode: true
+rofi.lines: 10
+rofi.width: -80
+rofi.padding: 0
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.font: Ubuntu 13
+rofi.matching: fuzzy
+rofi.display-drun: !
+rofi.display-window: window
+rofi.display-run: $
+rofi.display-combi: combi
+rofi.display-clipboard: clipboard
+rofi.terminal: sakura
+!rofi.levenshtein-sort: true
+rofi.pid: /home/lynn/.rofi.pid
+rofi.color-enabled: true
+rofi.color-window: #232323, #079db1, #079db1
+rofi.color-normal: #232323, #adaeaf, #232323, #545455, #ffffff
+rofi.color-active: #232323, #adaeaf, #232323, #545455, #ffffff
+rofi.color-urgent: #232323, #ff1844, #232323, #232323, #ff1844S
