@@ -59,6 +59,7 @@ mpd &
 compton -b &
 greencip daemon &
 # Optional
+screencloud &
 nitrogen --restore &
 xfce4-power-manager &
 #tilda -c cava &
