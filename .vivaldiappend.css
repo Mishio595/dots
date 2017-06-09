@@ -1,0 +1,10 @@
+#tabs-container {
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+}
+.trash {
+  display: none !important;
+}
+#titlebar {
+  display: none !important;
+}
