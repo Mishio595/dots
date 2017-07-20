@@ -101,8 +101,8 @@ interface = wlan0
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 
-label-connected    = %{A:connman-gtk >/dev/null:} %essid%%{A}
-label-disconnected = %{A:connman-gtk >/dev/null:} %{A}
+label-connected    =  %essid%
+label-disconnected =  
 label-disconnected-foreground = #aaa
 
 [module/xwindow]

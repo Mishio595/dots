@@ -35,7 +35,7 @@ bspc config focused_border_color          "#a0a0a0"
 bspc config normal_border_color           "#121212"
 
 #Rules
-bspc rule -a "Battle.net.exe" desktop=game state=tiled
+bspc rule -a "Battle.net.exe" desktop=game state=pseudo_tiled
 bspc rule -a "World of Warcraft.exe" desktop=game state=tiled layer=top
 bspc rule -a "Vivaldi-stable" desktop=web
 bspc rule -a "Chromium" desktop=web
@@ -45,6 +45,7 @@ bspc rule -a "discord" desktop=chat
 bspc rule -a "steam" desktop=game
 bspc rule -a "spotify" desktp=music
 bspc rule -a "Spotify" desktop=music
+bspc rule -a "KShare":"kshare" state=fullscreen
 
 # Non-BSPWM Settings
 xsetroot -cursor_name left_ptr
@@ -58,6 +59,7 @@ lxpolkit &
 mpd &
 compton -b &
 greencip daemon &
+redshift &
 # Optional
 nitrogen --restore &
 xfce4-power-manager &
