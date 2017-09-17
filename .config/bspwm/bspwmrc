@@ -5,12 +5,11 @@ bspc monitor -d web term chat game music
 bspc desktop music -l monocle
 
 bspc config border_width           1
-bspc config window_gap             10
+bspc config window_gap             5
 bspc config split_ratio            0.5
-bspc config top_padding            22
-bspc config focus_follows_pointer  true
+bspc config top_padding            20
 bspc config borderless_monocle     true
-bspc config gapless_monocle        true
+bspc config gapless_monocle        false
 bspc config auto_cancel            true
 bspc config auto_alternate         false
 bspc config ignore_ewmh_focus      true
@@ -35,17 +34,10 @@ bspc config focused_border_color          "#a0a0a0"
 bspc config normal_border_color           "#121212"
 
 #Rules
-bspc rule -a "Battle.net.exe" desktop=game state=pseudo_tiled
-bspc rule -a "World of Warcraft.exe" desktop=game state=tiled layer=top
 bspc rule -a "Vivaldi-stable" desktop=web
 bspc rule -a "Chromium" desktop=web
-bspc rule -a "Sakura":"ncmpcpp" desktop=music state=tiled
-bspc rule -a "Ario" desktop=music
 bspc rule -a "discord" desktop=chat
 bspc rule -a "steam" desktop=game
-bspc rule -a "spotify" desktp=music
-bspc rule -a "Spotify" desktop=music
-bspc rule -a "KShare":"kshare" state=fullscreen
 
 # Non-BSPWM Settings
 xsetroot -cursor_name left_ptr
@@ -59,10 +51,6 @@ lxpolkit &
 mpd &
 compton -b &
 greencip daemon &
-redshift &
-# Optional
+redshift-gtk &
+screencloud &
 nitrogen --restore &
-xfce4-power-manager &
-#tilda -c cava &
-#numlockx &
-wmname LG3D &

@@ -4,6 +4,8 @@ alias pacman="yaourt"
 alias targz="tar -xvzf"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias vim='nvim'
+alias launchbot='ssh -i "momiji.pem" ubuntu@ec2-18-220-195-172.us-east-2.compute.amazonaws.com'
+alias updatebot='scp -i "momiji.pem" -r /home/lynn/momiji ubuntu@ec2-18-220-195-172.us-east-2.compute.amazonaws.com:~/'
 
 # Prompt config
 set -g theme_display_git yes

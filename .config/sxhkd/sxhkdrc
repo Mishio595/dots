@@ -45,31 +45,18 @@ ctrl + alt + {Left,Right,Up,Down}
 super + b
 	bspc node @focused:/ -B -E
 
-# focus window on click
-~button1
-    bspc node -f pointed
-
-super + button{1-3}
-    bspc pointer -g {move,resize_side,resize_corner}
-
-super + !button{1-3}
-    bspc pointer -t %i %i
-
-super + @button{1-3}
-    bspc pointer -u
-
 #
 # wm independent hotkeys
 #
 
 super + Return
-    sakura
+	alacritty -e tmux
 
 super +{ shift + , }w
     {vivaldi-stable --remote-debugging-port=2015,vivaldi-stable}
 
 super + shift + f
-	nemo
+	caja
 
 super + d
 #    rofi -combi-modi window,drun,run -show combi -modi combi

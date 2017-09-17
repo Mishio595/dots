@@ -1,166 +1,94 @@
-[bar/top]
-width = 100%
-height = 24
-offset-x = 0
-offset-y = 0
-;bottom = true
+[settings]
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; colors
+base0 = #383E4A
+base1 = #383E4A
+base2 = #383E4A
+base3 = #383E4A
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; bar
+bar_fg            = #f8f8f2
+bar_bg            = #282136
+icon_spacing      = 1
+default_padding   = 3
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; date
+date_bg           = ${self.bar_bg}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; bspwm
+default_fg        = #dd
+empty_fg          = #55
+default_bg        = ${self.bar_bg}
+focused_bg        = #393F4C
+flag_bg           = ${self.base0}
+;#1B252C
+default_font      = 3
+workspace_padding = ${self.default_padding}
+flag_padding      = 1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; xwindow
+label_maxlen      = 100
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; battery
+battery_bg        = ${self.bar_bg}
+battery_fg        = ${self.bar_fg}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; weather
+weather_bg        = ${self.bar_bg}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; tray
+tray_bg           = ${self.bar_bg}
+tray_padding      = 1
 
-background = #5a000000
-foreground = #eee
 
-underline-size = 2
-underline-color = #eee
 
-spacing = 0 
-padding-left = 0
-padding-right = 0
-module-margin-left = 0
-module-margin-right = 0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bar/Bar]
+monitor = eDP-1
+bottom = false
+width = 1910
+height = 20
+offset-x = 5
+offset-y = 5
 
-font-0 = Lucida Gr:pixelsize=10;1
-font-1 = FontAwesome:size=10;1
-font-2 = siji:pixelsize=10;0
+foreground = ${settings.bar_fg}
+background = ${settings.bar_bg}
 
-modules-left = bspwm mpd spotify
-modules-center = xwindow
-modules-right = keyboard volume wlan battery memory cpu temp date
-
-tray-detached = true
-tray-position = right
-tray-offset-y = -30
-;tray-padding = 2
-;tray-background = #66333333
 fixed-center = true
+wm-restack = bspwm
 
-; MODULES
-[module/i3]
-type = internal/i3
-strip-wsnumbers = true
-#index-sort = true
-fuzzy-match = true
-#pin-workspaces = true
-#wrapping-scroll = true
+spacing = ${settings.icon_spacing}
 
-ws-icon-0 = web;
-ws-icon-1 = term;
-ws-icon-2 = rss;
-ws-icon-3 = game;
-ws-icon-4 = music;
-ws-icon-default = 
+font-0 = Lucida Gr:pixelsize=11;2
+font-1 = Lucida Gr:pixelsize=11;2
+font-2 = FontAwesome:size=10;2
+font-3 = Material\ Icons:size=10;3
+font-4 = Noto\ Sans:style=regular:size=8;0
+font-5 = Unifont:size=10;1
 
-format = <label-state> <label-mode>
+modules-left   = bspwm spotify
+#modules-center = title
+modules-right  = battery network date
 
-label-focused = %icon%
-label-focused-background = #88000000
-label-focused-underline= #ddd
-label-focused-padding = 3
+border-bottom-size  = 5
+border-bottom-color = ${settings.focused_bg}
 
-label-unfocused = %icon%
-label-unfocused-padding = 3
-
-label-urgent = %icon%
-label-urgent-padding = 3
-
-label-visible = %icon%
-label-visible-foreground = #44ffffff
-label-visible-padding = 3
-
-[module/bspwm]
-type = internal/bspwm
-
-ws-icon-0 = web;
-ws-icon-1 = term;
-#ws-icon-2 = rss;
-ws-icon-2 = chat;
-ws-icon-3 = game;
-ws-icon-4 = "music; " 
-ws-icon-default = 
-
-format = <label-state> <label-mode>
-
-label-focused = %icon%
-label-focused-background = #88000000
-label-focused-underline= #ddd
-label-focused-padding = 3
-
-label-occupied = %icon%
-label-occupied-padding = 3
-
-label-urgent = %icon%
-label-urgent-foreground = #d40000
-label-urgent-padding = 3
-
-label-empty = %icon%
-label-empty-foreground = #44ffffff
-label-empty-padding = 3
-
-[module/wlan]
-type = internal/network
-interface = wlan0
-
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-
-label-connected    =  %essid%
-label-disconnected =  
-label-disconnected-foreground = #aaa
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:50:...%
-label-padding = 2
-format-background = #88000000
-
-[module/date]
-type = internal/date
-
-; Seconds to sleep between updates
-interval = 1.0
-
-; See "man date" for details on how to format the date string
-; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = %a %b %d,
-
-; Optional time format
-time = %H:%M
-
-; if `date-alt` or `time-alt` is defined, clicking
-; the module will toggle between formats
-date-alt = %A, %d %B %Y
-time-alt = %H:%M:%S
-
-label = %date% %time%
-format =   <label>
-;format-background = #ddffffff
-;format-background = #88000000
-;format-foreground = #333
-format-padding = 1
-
-[module/padding]
-type = custom/text
-content =
-content-foreground = #00000000
-content-background = #55000000
+tray-position = right
+tray-padding = ${settings.tray_padding}
+tray-background = ${settings.tray_bg}
 
 [module/battery]
 type = internal/battery
-
-full-at = 99
-
 battery = BAT0
-adapter = AC0
+full-at = 98
 
-poll-interval = 5
+format-full-background        = ${settings.battery_bg}
+format-charging-background    = ${settings.battery_bg}
+format-discharging-background = ${settings.battery_bg}
+format-full-foreground        = ${settings.battery_fg}
+format-charging-foreground    = ${settings.battery_fg}
+format-discharging-foreground = ${settings.battery_fg}
+format-full-padding           = ${settings.default_padding}
+format-charging-padding       = ${settings.default_padding}
+format-discharging-padding    = ${settings.default_padding}
 
-format-charging = <animation-charging><label-charging>
-format-discharging = <ramp-capacity><label-discharging>
-format-full = <ramp-capacity><label-full>
-label-charging = %percentage%%
-label-discharging = %percentage%%
-label-full = %percentage%%
-format-charging-padding = 3
-format-discharging-padding = 3
-format-full-padding = 3
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -175,53 +103,113 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
 
-[module/keyboard]
-type = internal/xkeyboard
+[module/bspwm]
+type = internal/bspwm
 
-; List of indicators to ignore
-blacklist-0 = num lock
-blacklist-1 = scroll lock
+ws-icon-0 = web;
+ws-icon-1 = term;
+ws-icon-2 = chat;
+ws-icon-3 = game;
+ws-icon-4 = music;
+ws-icon-default = 
 
-format = <label-indicator> <label-layout>
-format-spacing = 0
+format = <label-state><label-mode>
 
-label-layout = %name%
-#label-layout-background = #bc99ed
-#label-layout-foreground = #000
+label-focused = %icon%
+label-focused-foreground = #fff
+label-focused-background = ${settings.focused_bg}
+label-focused-underline = #ff000000
+label-focused-font = ${settings.default_font}
+label-focused-padding = ${settings.workspace_padding}
 
-label-indicator = %name% |
-#label-indicator-background = #8139e8
+label-occupied = %icon%
+label-occupied-foreground = ${settings.default_fg}
+label-occupied-background = ${settings.default_bg}
+label-occupied-underline = #00000000
+label-occupied-font = ${settings.default_font}
+label-occupied-padding = ${settings.workspace_padding}
 
-[module/backlight]
-type = internal/backlight
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = ${settings.default_font}
+label-urgent-padding = ${settings.workspace_padding}
 
-card = intel_backlight
-enable-scroll = true
+label-empty = %icon%
+label-empty-foreground = ${settings.empty_fg}
+label-empty-background = ${settings.default_bg}
+label-empty-font = ${settings.default_font}
+label-empty-padding = ${settings.workspace_padding}
 
-format = <ramp> <label>
-label = %percentage%
+#label-monocle = 
+label-monocle-underline = ${self.label-focused-underline}
+label-monocle-background = ${settings.flag_bg}
+label-monocle-padding = ${settings.flag_padding}
 
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
+label-locked = 
+label-locked-foreground = ${settings.default_fg}
+label-locked-background = ${settings.flag_bg}
+label-locked-underline = ${self.label-monocle-underline}
+label-locked-padding = ${settings.flag_padding}
 
-[module/volume]
-type = internal/volume
+label-sticky = 
+label-sticky-foreground = ${settings.default_fg}
+label-sticky-background = ${settings.flag_bg}
+label-sticky-underline = ${self.label-monocle-underline}
+label-sticky-padding = ${settings.flag_padding}
 
-format-volume = <ramp-volume> <label-volume>
-format-muted = <label-muted>
-label-volume = %percentage%
-label-muted =  muted
-label-muted-foreground = #aaa
-format-volume-padding = 3
-format-muted-padding = 3
+label-private = 
+label-private-foreground = ${settings.default_fg}
+label-private-background = ${settings.flag_bg}
+label-private-underline = ${self.label-monocle-underline}
+label-private-padding = ${settings.flag_padding}
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-headphones-0 = 
+[module/bspwm-tmp]
+type = internal/bspwm
+format = <label-state>
+label-active = 
+label-active-padding = 1
+label-occupied = 
+label-occupied-padding = 1
+label-empty = 
+label-empty-padding = 1
+
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = ${settings.label_maxlen}
+
+[module/date]
+type = internal/date
+label-font = 2
+format-padding = ${settings.default_padding}
+format-background = ${settings.date_bg}
+date = %%{F#cc}%Y-%m-%d%%{F-}  %%{F#ff}%H:%M%%{F-}
+
+[module/network]
+type = internal/network
+interface = wlan0
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-connected-padding = ${settings.default_padding}
+format-disconnected-padding = ${settings.default_padding}
+
+label-connected = %essid%  %upspeed%  %downspeed%
+label-connected-foreground = ${settings.default_fg}
+label-disconnected = disconnected
+label-disconnected-foreground = ${settings.default_fg}
+
+
+[module/weather]
+type = custom/script
+interval = 30
+format = <label>
+format-background = ${settings.weather_bg}
+format-prefix = "  "
+format-padding = ${settings.default_padding}
+exec = ~/.config/polybar/weather
 
 [module/spotify]
 type = custom/script
@@ -229,137 +217,12 @@ type = custom/script
 exec = eval $HOME/.config/polybar/spotify.sh
 interval = 1
 
-format = <label>
-format-background = #88000000
-format-underline = #ddd
-format-padding = 0
+format = "<label> %{A1:eval $HOME/.config/polybar/spotifycontrol.sh previous:}  %{A} %{A1:eval $HOME/.config/polybar/spotifycontrol.sh next:}  %{A}  "
+
+format-background = ${settings.bar_bg}
+format-underline = ${settings.bar_fg}
+format-padding = ${settings.default_padding}
 
 label = %output%
-
-[module/powermenu]
-type = custom/menu
-
-label-open = 
-;label-open-background = #dd0000
-;label-open-foreground = #fff
-label-close = cancel
-;label-close-background = #dd0000
-;label-close-foreground = #fff
-label-open-padding = 4
-label-close-padding = 3
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-menu-0-0-padding = 3
-menu-0-1-padding = 3
-
-menu-1-0 = reboot?
-menu-1-0-exec = sudo reboot
-menu-1-0-padding = 3
-
-menu-2-0 = power off?
-menu-2-0-exec = sudo poweroff
-menu-2-0-padding = 3
-
-[module/mpd]
-type = internal/mpd
-
-host = 127.0.0.1
-port = 6600
-password =
-
-; Seconds to sleep between progressbar/song timer sync
-; Default: 1
-interval = 2
-
-bar-progress-width = 20
-bar-progress-format = %fill%%indicator%%empty%
-bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
-
-icon-play = 
-icon-pause = 
-icon-prev = 
-icon-next = 
-icon-stop = 
-icon-random = 
-; Available tags:
-;   <label-song> (default)
-;   <label-time>
-;   <bar-progress>
-;   <toggle> - gets replaced with <icon-(pause|play)>
-;   <toggle-stop> - gets replaced with <icon-(stop|play)>
-;   <icon-random>
-;   <icon-repeat>
-;   <icon-repeatone>
-;   <icon-prev>
-;   <icon-stop>
-;   <icon-play>
-;   <icon-pause>
-;   <icon-next>
-;   <icon-seekb>
-;   <icon-seekf>
-format-online = <label-song>  <icon-prev>  <toggle>  <icon-next>  <bar-progress>
-format-online-background = #88000000
-format-online-underline = #ddd
-; Available tokens:
-;   %artist%
-;   %album%
-;   %date%
-;   %title%
-; Default: %artist% - %title%
-label-song = %artist% - %title:0:20:...%
-format-online-padding = 3
-
-[module/temp]
-type                  = internal/temperature
-thermal-zone          = 0
-warn-temperature      = 80
-
-format             = <ramp><label>
-label-padding = 2
-format-warn           = <label-warn>
-label                 = %temperature%
-label-warn            =  %temperature%
-
-ramp-0 = "  "
-ramp-1 = "  "
-ramp-2 = "  "
-
-[module/memory]
-type             = internal/memory
-interval         = 2
-format           = <label>
-
-label            =  %percentage_used%%
-label-padding   =  2
-
-[module/cpu]
-format-label       = internal/cpu
-
-format             = <label>
-format-padding     = 2
-
-type      = internal/cpu
-interval  = 2
-label     =  %percentage%%
-padding   = 0
-
-[module/updates]
-type = custom/script
-#interval = 5
-format = <label>
-label = "%output:0:30%"
-exec = .config/polybar/pkg.sh
-#exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 
 ; vim:ft=dosini

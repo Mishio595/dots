@@ -28,24 +28,24 @@ background = ${colors.transparent}
 foreground = ${colors.foreground}
 
 border-left-size = 0
-border-right-size = 15
+;border-right-size = 15
 border-color = ${self.background}
 
-font-0 = Ubuntu:size=10:style=Medium;1
+font-0 = Lucida Gr:pixelsize=10;2
 font-1 = FontAwesome:size=10;1
 font-2 = SourceCodePro+Powerline+Awesome Regular:size=10;2.5
 #font-3 = Source Han Sans JP:size=10;1
 
-modules-left   = powermenu bspwm xwindow mpd
-modules-center = date
-modules-right  = xkeyboard updates backlight volume memory cpu wlan battery temperature
+modules-left   = bspwm mpd spotify
+modules-center = xwindow
+modules-right  = xkeyboard updates volume wlan battery date
 
 tray-position = right
 tray-padding = 5
 tray-scale = 1
 tray-background = ${colors.background}
-tray-offset-y = -20
-tray-detached = true
+;tray-offset-y = -20
+;tray-detached = true
 
 [module/xwindow]
 type   = internal/xwindow
@@ -73,7 +73,14 @@ label-foreground		   = ${colors.foreground}
 
 [module/bspwm]
 type            = internal/bspwm
-format          = <label-mode><label-state>
+format          = <label-state>
+
+ws-icon-0 = web;
+ws-icon-1 = term;
+ws-icon-2 = chat;
+ws-icon-3 = game;
+ws-icon-4 = music;
+ws-icon-default = 
 
 label-monocle = "    "
 label-monocle-background = ${colors.color8}
@@ -83,29 +90,29 @@ label-tiled-background = ${colors.color8}
 label-mode-foreground      = ${colors.foreground}
 label-mode-background      = ${colors.color8}
 
-label-focused = 
-label-focused-foreground   = ${colors.foreground}
-label-focused-background   = ${colors.color8}
+label-focused = %icon%
+label-focused-foreground   = ${colors.color8}
+label-focused-background   = ${colors.foreground}
 label-focused-padding      = 2
 
-label-occupied =  
+label-occupied =  %icon%
 label-occupied-background = ${colors.color8}
 label-occupied-foreground = ${colors.foreground}
 label-occupied-padding    = 2
 
-label-empty = 
+label-empty = %icon%
 label-empty-background	  = ${colors.color8}
 label-empty-foreground	  = ${colors.background}
 label-empty-padding		  = 2
 
-label-urgent = 
+label-urgent = %icon%
 label-urgent-background   = ${colors.color8}
 label-urgent-foreground   = ${colors.color8}
 label-urgent-padding      = 2
 
-format-prefix             = 
-format-prefix-foreground  = ${colors.background}
-format-prefix-background  = ${colors.color8}
+#format-prefix             = 
+#format-prefix-foreground  = ${colors.background}
+#format-prefix-background  = ${colors.color8}
 format-suffix             = 
 format-suffix-background  = ${module/xwindow.format-background}
 format-suffix-foreground  = ${colors.color8}
@@ -223,11 +230,11 @@ label-disconnected = %{A:connman-gtk:} %{A}
 
 
 format-connected-prefix               = 
-format-connected-prefix-background    = ${module/cpu.format-background}
+format-connected-prefix-background    = ${module/volume.format-volume-background}
 format-connected-prefix-foreground    = ${self.label-connected-background}
 
 format-disconnected-prefix            = 
-format-disconnected-prefix-background = ${module/cpu.format-background}
+format-disconnected-prefix-background = ${module/volume.format-volume-background}
 format-disconnected-prefix-foreground = ${self.label-connected-background}
 
 format-connected-suffix               = 
@@ -242,11 +249,11 @@ format-disconnected-suffix-background = ${self.label-connected-background}
 type     = internal/date
 interval = 2
 
-date-alt     = " %d.%m.%Y"
-date = "  %A, %d. %B"
+date     = " %d.%m.%Y"
+#date = "  %A, %d. %B"
 
-time-alt     = "%H:%M"
-time = "%H:%M:%S"
+time     = "%H:%M"
+#time = "%H:%M:%S"
 
 label-background = ${colors.color8}
 #label-foreground = ${colors.cyan}
@@ -257,10 +264,10 @@ label            = %time% | %date%
 
 format-prefix            = 
 format-prefix-foreground = ${self.label-background}
-#format-prefix-background = ${self.label-background}
-format-suffix            = 
-format-suffix-foreground = ${self.label-background}
-#format-suffix-background = ${colors.background}
+format-prefix-background = ${module/battery.format-background}
+format-suffix            = 
+format-suffix-foreground = ${colors.background}
+format-suffix-background = ${self.label-background}
 
 [module/volume]
 type                      = internal/volume
@@ -390,6 +397,27 @@ menu-0-2 = "  cancel"
 label-open = " "
 label-close =
 
+[module/spotify]
+type = custom/script
+
+exec = eval $HOME/.config/polybar/spotify.sh
+interval = 1
+
+format = <label>
+label-foreground = ${colors.grey}
+label-background = ${colors.color10}
+;format-underline = #ddd
+format-padding = 0
+
+label = %output%
+
+format-prefix            = 
+format-prefix-foreground = ${module/xwindow.format-background}
+format-prefix-background = ${self.label-background}
+
+format-suffix            = 
+format-suffix-foreground = ${self.label-background}
+
 [module/updates]
 type = custom/script
 #interval = 5
@@ -398,8 +426,11 @@ label-foreground = ${colors.grey}
 label-background = ${colors.color14}
 format-prefix = 
 format-prefix-foreground = ${self.label-background}
+format-suffix = 
+format-suffix-background = ${self.label-background}
+format-suffix-foreground = ${module/volume.format-volume-background}
 label = "%output:0:30%"
-exec = .config/polybar/pkg.sh
+exec = eval ~/.config/polybar/pkg.sh
 #exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 
 ; vim:ft=dosini
