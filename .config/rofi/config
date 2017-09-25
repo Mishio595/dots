@@ -1,5 +1,5 @@
-rofi.modi: combi,clipboard:greenclip print
-rofi.combi-modi: window,run,drun
+rofi.modi: combi, clipboard:greenclip print
+rofi.combi-modi: window,drun
 rofi.sidebar-mode: false
 rofi.lines: 10
 rofi.fullscreen: false
@@ -14,7 +14,7 @@ rofi.display-window: w
 rofi.display-run: $
 rofi.display-combi: combi
 rofi.display-clipboard: clipboard
-rofi.terminal: sakura
+rofi.terminal: alacritty
 rofi.color-enabled: true
 rofi.color-window: argb:aa000000, argb:0079db1, #b10707
 rofi.color-normal: argb:0232323, #adaeaf, argb:0232323, argb:6d545455, #ffffff

@@ -38,6 +38,8 @@ bspc rule -a "Vivaldi-stable" desktop=web
 bspc rule -a "Chromium" desktop=web
 bspc rule -a "discord" desktop=chat
 bspc rule -a "steam" desktop=game
+bspc rule -a "Luakit" desktop=web
+bspc rule -a "battle.net.exe" desktop=game
 
 # Non-BSPWM Settings
 xsetroot -cursor_name left_ptr
@@ -50,7 +52,10 @@ lxpolkit &
 # Nice to have
 mpd &
 compton -b &
-greencip daemon &
+greenclip daemon &
+unclutter -idle 10 -root &
 redshift-gtk &
 screencloud &
+nm-applet &
+blueman-applet &
 nitrogen --restore &

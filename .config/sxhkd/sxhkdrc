@@ -26,8 +26,6 @@ super + t
 super + Tab
     bspc node @focused:/ -R 90
 
-super + ctrl + {1-9}
-    bspc desktop -b focused:^{1-9}
 #focus desktop
 super + {Right,Left}
     bspc desktop -f {next,prev}
@@ -58,18 +56,11 @@ super +{ shift + , }w
 super + shift + f
 	caja
 
-super + d
-#    rofi -combi-modi window,drun,run -show combi -modi combi
-	rofi -show combi
+super +{ shift + , }d
+	{rofi -show combi, ~/.dmenu_recent}
 
-super +{ shift +, }m
-    {liferea,alduin}
-
-super + e
-	atom
-
-super +{shift + , }n
-    {ario,sakura --name ncmpcpp -e ncmpcpp}
+super + n
+    alacritty --name ncmpcpp -e ncmpcpp
 
 ctrl + alt + l
     i3lock-wrapper
@@ -84,6 +75,9 @@ XF86AudioMute
 
 XF86Audio{Prev,Next,Play,Stop}
     mpc {prev,next,toggle,stop}
+
+{_,shift + }XF86MonBrightness{Down,Up}
+	xbacklight {-10,min,+10,max}
 
 # make sxhkd reload its configuration files:
 super + shift + c

@@ -12,7 +12,7 @@ default_padding   = 3
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; date
 date_bg           = ${self.bar_bg}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; bspwm
-default_fg        = #dd
+default_fg        = ${self.bar_fg}
 empty_fg          = #55
 default_bg        = ${self.bar_bg}
 focused_bg        = #393F4C
@@ -62,7 +62,7 @@ font-5 = Unifont:size=10;1
 
 modules-left   = bspwm spotify
 #modules-center = title
-modules-right  = battery network date
+modules-right  = keyboard volume battery network date
 
 border-bottom-size  = 5
 border-bottom-color = ${settings.focused_bg}
@@ -201,6 +201,19 @@ label-connected-foreground = ${settings.default_fg}
 label-disconnected = disconnected
 label-disconnected-foreground = ${settings.default_fg}
 
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+format = <label-indicator> <label-layout>
+format-padding = ${settings.default_padding}
+format-background = ${settings.bar_bg}
+format-foreground = ${settings.bar_fg}
+label-layout = %name%
+label-indicator = %name% |
 
 [module/weather]
 type = custom/script
@@ -224,5 +237,21 @@ format-underline = ${settings.bar_fg}
 format-padding = ${settings.default_padding}
 
 label = %output%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%
+label-muted = muted
+label-muted-foreground = #aaa
+format-volume-padding = ${settings.default_padding}
+format-muted-padding = ${settings.default_padding}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
 
 ; vim:ft=dosini
