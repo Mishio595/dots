@@ -40,6 +40,8 @@ bspc rule -a "discord" desktop=chat
 bspc rule -a "steam" desktop=game
 bspc rule -a "Luakit" desktop=web
 bspc rule -a "battle.net.exe" desktop=game
+bspc rule -a "feh" state=floating
+bspc rule -a "mpv" state=floating
 
 # Non-BSPWM Settings
 xsetroot -cursor_name left_ptr
@@ -48,6 +50,7 @@ xsetroot -cursor_name left_ptr
 sxhkd &
 $HOME/.config/polybar/polylaunch.sh  &
 lxpolkit &
+$HOME/.fehbg &
 
 # Nice to have
 mpd &
@@ -58,4 +61,3 @@ redshift-gtk &
 screencloud &
 nm-applet &
 blueman-applet &
-nitrogen --restore &

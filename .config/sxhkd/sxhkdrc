@@ -14,6 +14,9 @@ super + {_,shift + }{1-9}
 super + q
     bspc node -c
 
+super + f
+	bspc node focused -t ~fullscreen
+
 # toggle window state (floating,fullscreen)
 super + space
     toggle-floating
@@ -40,6 +43,7 @@ super + alt + {h,j,k,l}
 ctrl + alt + {Left,Right,Up,Down}
     bspc node -p \~{west,east,north,south}
 
+# Balance the current desktop
 super + b
 	bspc node @focused:/ -B -E
 
@@ -51,10 +55,13 @@ super + Return
 	alacritty -e tmux
 
 super +{ shift + , }w
-    {vivaldi-stable --remote-debugging-port=2015,vivaldi-stable}
+    {vivaldi-stable,luakit}
 
-super + shift + f
-	caja
+super + {alt,shift} + f
+	{urxvtc -e ranger,caja}
+
+super + r
+	alacritty -e rtv >/dev/null
 
 super +{ shift + , }d
 	{rofi -show combi, ~/.dmenu_recent}

@@ -8,12 +8,11 @@ PROCESS=$2
 PID=`pgrep -o -u $USER $PROCESS`
 ENVIRON=/proc/$PID/environ
 
-if [ -e $ENVIRON ]
-then
-export `grep -z DBUS_SESSION_BUS_ADDRESS $ENVIRON`
+if [ -e $ENVIRON ]; then
+    export `grep -z DBUS_SESSION_BUS_ADDRESS $ENVIRON`
 else
-echo "Unable to set DBUS_SESSION_BUS_ADDRESS."
-exit 1
+    echo "Unable to set DBUS_SESSION_BUS_ADDRESS."
+    exit 1
 fi
 }
 
@@ -29,7 +28,7 @@ qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBu
 
 function quit_message
 {
-echo "Usage: `basename $0` {play|pause|playpause|next|previous|stop|playstatu s|<spotify URI>}"
+echo "Usage: `basename $0` {play|pause|playpause|next|previous|stop|playstatus|<spotify URI>}"
 exit 1
 }
 
@@ -41,45 +40,45 @@ quit_message
 fi
 
 # Check if DBUS_SESSION is set
-if [ -z $DBUS_SESSION_BUS_ADDRESS ] 
+if [ -z $DBUS_SESSION_BUS_ADDRESS ]
 then
 #echo "DBUS_SESSION_BUS_ADDRESS not set. Guessing."
 set_dbus_adress `whoami` spotify
 fi
 
 case "$1" in
-play)
-spotify_cmd Play
-;;
-pause)
-spotify_cmd Pause
-;;
-playpause)
-spotify_cmd PlayPause
-;;
-next)
-spotify_cmd Next
-;;
-previous)
-spotify_cmd Previous
-;;
-stop)
-spotify_cmd Stop
-;;
-spotify:user:*)
-spotify_cmd "OpenUri string:$1"
-spotify_cmd Play
-;;
-spotify:*:*)
-spotify_cmd "OpenUri string:$1"
-;;
-playstatus)
-spotify_query
-;;
-*)
-echo -e "Bad argument.\n"
-quit_message
-;;
+    play)
+        spotify_cmd Play
+    ;;
+    pause)
+        spotify_cmd Pause
+    ;;
+    playpause)
+        spotify_cmd PlayPause
+    ;;
+    next)
+        spotify_cmd Next
+    ;;
+    previous)
+        spotify_cmd Previous
+    ;;
+    stop)
+        spotify_cmd Stop
+    ;;
+    spotify:user:*)
+        spotify_cmd "OpenUri string:$1"
+        spotify_cmd Play
+    ;;
+    spotify:*:*)
+        spotify_cmd "OpenUri string:$1"
+    ;;
+    playstatus)
+        spotify_query
+    ;;
+    *)
+        echo -e "Bad argument.\n"
+        quit_message
+    ;;
 esac
 
 exit 0

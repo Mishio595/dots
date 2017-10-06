@@ -196,7 +196,7 @@ format-disconnected = <label-disconnected>
 format-connected-padding = ${settings.default_padding}
 format-disconnected-padding = ${settings.default_padding}
 
-label-connected = %essid%  %upspeed%  %downspeed%
+label-connected =  %upspeed%  %downspeed%
 label-connected-foreground = ${settings.default_fg}
 label-disconnected = disconnected
 label-disconnected-foreground = ${settings.default_fg}
