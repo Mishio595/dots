@@ -1,0 +1,5 @@
+2017/10/08-21:59:12.779 27949 Reusing MANIFEST /home/lynn/.config/Atom/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2017/10/08-21:59:12.782 27949 Recovering log #272
+2017/10/08-21:59:12.806 27949 Level-0 table #276: started
+2017/10/08-21:59:12.861 27949 Level-0 table #276: 2633900 bytes OK
+2017/10/08-21:59:12.864 27949 Delete type=0 #272

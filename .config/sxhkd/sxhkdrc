@@ -52,22 +52,23 @@ super + b
 #
 
 super + Return
-	alacritty -e tmux
+	urxvtc -e tmux
 
-super +{ shift + , }w
-    {vivaldi-stable,luakit}
+super + w
+    luakit
+	#vivaldi-stable
 
 super + {alt,shift} + f
 	{urxvtc -e ranger,caja}
 
 super + r
-	alacritty -e rtv >/dev/null
+	urxvtc -e rtv >/dev/null
 
 super +{ shift + , }d
 	{rofi -show combi, ~/.dmenu_recent}
 
 super + n
-    alacritty --name ncmpcpp -e ncmpcpp
+    urxvtc --name ncmpcpp -e ncmpcpp
 
 ctrl + alt + l
     i3lock-wrapper

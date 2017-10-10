@@ -51,6 +51,7 @@ sxhkd &
 $HOME/.config/polybar/polylaunch.sh  &
 lxpolkit &
 $HOME/.fehbg &
+urxvtd &
 
 # Nice to have
 mpd &
