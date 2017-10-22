@@ -7,10 +7,7 @@ Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'dracula/vim'
 Plug 'tpope/vim-sensible'
-Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'cazador481/fakeclip.neovim'
-Plug 'brooth/far.vim'
 call plug#end()
 " End vim-plug section
 

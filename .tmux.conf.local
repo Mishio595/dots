@@ -251,6 +251,11 @@ tmux_conf_copy_to_os_clipboard=false
 # start with mouse mode enabled
 set -g mouse on
 
+# move x clipboard into tmux paste buffer
+bind C-p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
+# move tmux copy buffer into x clipboard
+bind C-y run "tmux save-buffer - | xclip -i"
+
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi

@@ -185,7 +185,7 @@ type = internal/date
 label-font = 2
 format-padding = ${settings.default_padding}
 format-background = ${settings.date_bg}
-date = %%{F#cc}%Y-%m-%d%%{F-}  %%{F#ff}%H:%M%%{F-}
+date = %%{F#cc}%a %d %b %Y%{F-}  %%{F#ff}%H:%M%%{F-}
 
 [module/network]
 type = internal/network

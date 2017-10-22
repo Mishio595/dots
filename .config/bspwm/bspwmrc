@@ -2,7 +2,7 @@
 
 bspc monitor -d web term chat game music
 
-bspc desktop music -l monocle
+bspc desktop chat -l monocle
 
 bspc config border_width           1
 bspc config window_gap             5
@@ -42,6 +42,7 @@ bspc rule -a "Luakit" desktop=web
 bspc rule -a "battle.net.exe" desktop=game
 bspc rule -a "feh" state=floating
 bspc rule -a "mpv" state=floating
+bspc rule -a "Spotify" desktop=music
 
 # Non-BSPWM Settings
 xsetroot -cursor_name left_ptr
@@ -57,7 +58,7 @@ urxvtd &
 mpd &
 compton -b &
 greenclip daemon &
-unclutter -idle 10 -root &
+unclutter -idle 20 -root &
 redshift-gtk &
 screencloud &
 nm-applet &

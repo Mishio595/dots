@@ -1,4 +1,5 @@
-URxvt.font: xft:Source Code Pro for Powerline:size=10, xft:FontAwesome:size=11
+URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10, xft:Noto Sans Symbols:size=11; xft:FontAwesome:size=11
+URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt*scrollWithBuffer: true
 
