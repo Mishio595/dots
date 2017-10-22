@@ -62,7 +62,7 @@ font-5 = Unifont:size=10;1
 
 modules-left   = bspwm spotify
 #modules-center = title
-modules-right  = keyboard volume battery network date
+modules-right  = keyboard gmail weather volume battery date
 
 border-bottom-size  = 5
 border-bottom-color = ${settings.focused_bg}
@@ -217,12 +217,12 @@ label-indicator = %name% |
 
 [module/weather]
 type = custom/script
-interval = 30
+interval = 10
 format = <label>
 format-background = ${settings.weather_bg}
 format-prefix = "  "
 format-padding = ${settings.default_padding}
-exec = ~/.config/polybar/weather
+exec = eval ~/.config/polybar/weather
 
 [module/spotify]
 type = custom/script
@@ -253,5 +253,15 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-headphones-0 = 
+
+[module/gmail]
+type = custom/script
+exec = eval ~/.config/polybar/gmail/launch.py -ns
+tail = true
+click-left = xdg-open https://mail.google.com
+
+format-background = ${settings.bar_bg}
+format-underline = ${settings.bar_fg}
+format-padding = ${settings.default_padding}
 
 ; vim:ft=dosini
