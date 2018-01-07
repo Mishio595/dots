@@ -43,6 +43,7 @@ bspc rule -a "battle.net.exe" desktop=game
 bspc rule -a "feh" state=floating
 bspc rule -a "mpv" state=floating
 bspc rule -a "Spotify" desktop=music
+bspc rule -a "*":"ncmpcpp" desktop=music
 
 # Non-BSPWM Settings
 xsetroot -cursor_name left_ptr

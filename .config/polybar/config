@@ -60,7 +60,7 @@ font-3 = Material\ Icons:size=10;3
 font-4 = Noto\ Sans:style=regular:size=8;0
 font-5 = Unifont:size=10;1
 
-modules-left   = bspwm spotify
+modules-left   = bspwm spotify mpd
 #modules-center = title
 modules-right  = keyboard gmail weather volume battery date
 
@@ -70,6 +70,62 @@ border-bottom-color = ${settings.focused_bg}
 tray-position = right
 tray-padding = ${settings.tray_padding}
 tray-background = ${settings.tray_bg}
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+password =
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 1
+
+bar-progress-width = 20
+bar-progress-format = %fill%%indicator%%empty%
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+icon-play = 
+icon-pause = 
+icon-prev = 
+icon-next = 
+icon-stop = 
+icon-random = 
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <label-song>  <icon-prev>  <toggle>  <icon-next>  <bar-progress>
+format-online-background = ${settings.bar_bg}
+; Available tokens:
+;   %artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = %artist% - %title:0:20:...%
+format-online-padding = ${settings.default_padding}
 
 [module/battery]
 type = internal/battery
@@ -258,7 +314,7 @@ ramp-headphones-0 = 
 type = custom/script
 exec = eval ~/.config/polybar/gmail/launch.py -ns
 tail = true
-click-left = xdg-open https://mail.google.com
+click-left = xdg-open https://mail.google.com &
 
 format-background = ${settings.bar_bg}
 format-underline = ${settings.bar_fg}

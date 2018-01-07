@@ -1,9 +1,26 @@
+# Aliases
+alias ls='ls --color=auto'
 alias la="ls -a"
 alias ll="ls -al"
+alias l.='ls -d .*'
 alias pacman="yaourt"
 alias targz="tar -xvzf"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias vim='nvim'
+alias haste='hastebin'
+alias bspwmrc='vim $HOME/.config/bspwm/bspwmrc'
+alias sxhkdrc='vim $HOME/.config/sxhkd/sxhkdrc'
+alias ..='cd ..'
+alias c='clear'
+alias update='pacman -Syua'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias diff='colordiff'
+alias vi='vim'
+alias ping='ping -c 5'
+alias rm='rm --preserve-root'
+alias polylaunch='eval $HOME/.config/polybar/polylaunch.sh'
 
 # Prompt config
 set -g theme_display_git yes

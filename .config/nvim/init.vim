@@ -20,11 +20,13 @@ set nobackup      " This is pretty obvious
 set nowrap        " Don't wrap line, its annoying af
 set nu            " Show line numbers
 
-" Maps F5 to trim trailing whitespace silently
-nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
-
 " Colors and plugin configuration
 colorscheme dracula
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:deoplete#enable_at_startup = 1
+
+" Key bindings
+" Maps F5 to trim trailing whitespace silently
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+vnoremap <C-c> :w !xsel -i -b <CR><CR>
