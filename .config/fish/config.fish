@@ -3,7 +3,7 @@ alias ls='ls --color=auto'
 alias la="ls -a"
 alias ll="ls -al"
 alias l.='ls -d .*'
-alias pacman="yaourt"
+alias pacman="aurman --noedit"
 alias targz="tar -xvzf"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias vim='nvim'
@@ -12,7 +12,7 @@ alias bspwmrc='vim $HOME/.config/bspwm/bspwmrc'
 alias sxhkdrc='vim $HOME/.config/sxhkd/sxhkdrc'
 alias ..='cd ..'
 alias c='clear'
-alias update='pacman -Syua'
+alias update='pacman -Syu'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -21,6 +21,10 @@ alias vi='vim'
 alias ping='ping -c 5'
 alias rm='rm --preserve-root'
 alias polylaunch='eval $HOME/.config/polybar/polylaunch.sh'
+
+export EDITOR=vim
+export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH="/home/lynn/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 # Prompt config
 set -g theme_display_git yes

@@ -55,22 +55,22 @@ super + Return
 	alacritty -e tmux
 
 super +{ , shift + }w
-	{luakit,vivaldi-stable}
+	{luakit, firefox-nightly}
 
-super + {shift,alt} + f
-	{urxvtc -e ranger,caja}
+super + {shift,ctrl} + f
+	{nautilus,urxvtc -e ranger}
 
 super + r
 	alacritty -e rtv
 
 super +{ shift + , }d
-	{rofi -show drun, ~/.dmenu_recent}
+	{rofi -show drun, rofi -show run}
 
-super + n
-    alacritty --name ncmpcpp -e ncmpcpp
+#super + n
+#    urxvtc -name ncmpcpp -e ncmpcpp
 
 ctrl + alt + l
-    i3lock-wrapper
+    dm-tool lock
 
 XF86Audio{Raise,Lower}Volume
 	pulseaudio-ctl {up,down} 2

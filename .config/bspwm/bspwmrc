@@ -36,13 +36,16 @@ bspc config normal_border_color           "#121212"
 #Rules
 bspc rule -a "Vivaldi-stable" desktop=web
 bspc rule -a "Chromium" desktop=web
+bspc rule -a "Nightly" desktop=web state=tiled
+bspc rule -a "*":"Popup" state=floating
 bspc rule -a "discord" desktop=chat
-bspc rule -a "steam" desktop=game
+bspc rule -a "Steam" desktop=game
 bspc rule -a "Luakit" desktop=web
 bspc rule -a "battle.net.exe" desktop=game
 bspc rule -a "feh" state=floating
 bspc rule -a "mpv" state=floating
 bspc rule -a "Spotify" desktop=music
+bspc rule -s "*":"spotify" desktop=music
 bspc rule -a "*":"ncmpcpp" desktop=music
 
 # Non-BSPWM Settings
@@ -56,7 +59,7 @@ $HOME/.fehbg &
 urxvtd &
 
 # Nice to have
-mpd &
+#mpd &
 compton -b &
 greenclip daemon &
 unclutter -idle 20 -root &
